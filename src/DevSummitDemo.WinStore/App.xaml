@@ -1,0 +1,10 @@
+﻿<Application
+    x:Class="DevSummitDemo.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DevSummitDemo">
+    <Application.Resources>
+        <x:String x:Key="UserName">===ENTER USER NAME HERE===</x:String>
+        <x:String x:Key="Password">===ENTER PASSWORD HERE====</x:String>
+    </Application.Resources>
+</Application>
