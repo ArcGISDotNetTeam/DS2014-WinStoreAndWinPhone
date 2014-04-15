@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:DevSummitDemo">
     <Application.Resources>
+        <!-- The credentials specified here must be for an ArcGIS Online Organizational (subscription) account. 
+             A subscription is required to access the exportable basemap services made available at tiledbasemaps.arcgis.com. -->
         <x:String x:Key="UserName">===ENTER USER NAME HERE===</x:String>
         <x:String x:Key="Password">===ENTER PASSWORD HERE====</x:String>
     </Application.Resources>
