@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Windows;
 using System.Globalization;
-#if WINDOWS_PHONE
-using System.Windows.Data;
-#elif NETFX_CORE
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml;
-#endif
 
 namespace DevSummitDemo
 {

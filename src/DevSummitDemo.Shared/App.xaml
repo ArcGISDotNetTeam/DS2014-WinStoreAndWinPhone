@@ -6,7 +6,7 @@
     <Application.Resources>
         <!-- The credentials specified here must be for an ArcGIS Online Organizational (subscription) account. 
              A subscription is required to access the exportable basemap services made available at tiledbasemaps.arcgis.com. -->
-        <x:String x:Key="UserName">===ENTER USER NAME HERE===</x:String>
-        <x:String x:Key="Password">===ENTER PASSWORD HERE====</x:String>
+        <x:String x:Key="UserName">apptest</x:String>
+        <x:String x:Key="Password">app@test</x:String>
     </Application.Resources>
 </Application>

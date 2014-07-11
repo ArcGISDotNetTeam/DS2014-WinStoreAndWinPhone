@@ -8,10 +8,11 @@
 	xmlns:layers="using:Esri.ArcGISRuntime.Layers"
 	xmlns:data="using:Esri.ArcGISRuntime.Data"
 	xmlns:geom="using:Esri.ArcGISRuntime.Geometry"
-	xmlns:toolkit="using:Esri.ArcGISRuntime.Toolkit.Controls" xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+	xmlns:toolkit="using:Esri.ArcGISRuntime.Toolkit.Controls" 
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="DevSummitDemo.MainPage"
-    mc:Ignorable="d"
-	>
+    mc:Ignorable="d">
 	
 	<Page.Resources>
         <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
@@ -25,8 +26,8 @@
 					</esri:Map.InitialExtent>
 					
 					<layers:ArcGISTiledMapServiceLayer DisplayName="Imagery"
-						ServiceUri="http://tiledbasemaps.arcgis.com/arcgis/rest/services/World_Street_Map/MapServer" />
-					
+						ServiceUri="https://tiledbasemaps.arcgis.com/arcgis/rest/services/World_Street_Map/MapServer" />
+                    
 					<layers:FeatureLayer DisplayName="Session Rooms">
 						<data:GeodatabaseFeatureServiceTable
 							ServiceUri="http://services.arcgis.com/qvVnajWeXlTaQQu1/ArcGIS/rest/services/DevSummit2014/FeatureServer/1" />
@@ -110,26 +111,22 @@
 	</Grid>
 
 	<Page.BottomAppBar>
-        <AppBar IsOpen="True" IsSticky="True" >
-            <Grid HorizontalAlignment="Stretch" DataContext="{StaticResource vm}">
-                <StackPanel HorizontalAlignment="Left"
-                        Orientation="Horizontal">
-                    <AppBarButton Icon="Undo" Label="Undo" Command="{Binding Editor.Undo}"/>
-                    <AppBarButton Icon="Redo" Label="Redo" Command="{Binding Editor.Redo}"/>
-                    <AppBarButton Icon="Map" Label="Use location" Command="{Binding Editor.AddVertex}" CommandParameter="{Binding LocationDisplay.CurrentLocation.Location}"/>
-                    <AppBarButton Icon="Cancel" Label="Cancel" Command="{Binding Editor.Cancel}" />
-                    <AppBarButton Icon="Accept" Label="Complete" Command="{Binding Editor.Complete}"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Right"
-                        Orientation="Horizontal">
-                    <AppBarButton Icon="Download" Label="Provision"
-                                  Command="{Binding OnProvisionOfflineDataRequested, Mode=OneTime}" />
-                    <AppBarButton Icon="Sync" Label="Sync"
-                                Command="{Binding OnSyncRequestedCommand, Mode=OneTime}"/>
-                    <AppBarToggleButton IsChecked="{Binding LocationDisplay.IsEnabled, Mode=TwoWay}"
+        <CommandBar IsOpen="True" IsSticky="True" >
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Undo" Label="Undo" Command="{Binding Editor.Undo, Source={StaticResource vm}}"/>
+                <AppBarButton Icon="Redo" Label="Redo" Command="{Binding Editor.Redo, Source={StaticResource vm}}"/>
+                <AppBarButton Icon="Map" Label="Use location" Command="{Binding Editor.AddVertex, Source={StaticResource vm}}" CommandParameter="{Binding LocationDisplay.CurrentLocation.Location}"/>
+                <AppBarButton Icon="Cancel" Label="Cancel" Command="{Binding Editor.Cancel, Source={StaticResource vm}}" />
+                <AppBarButton Icon="Accept" Label="Complete" Command="{Binding Editor.Complete, Source={StaticResource vm}}"/>
+            </CommandBar.SecondaryCommands>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Icon="Download" Label="Provision"
+                                  Command="{Binding OnProvisionOfflineDataRequested, Mode=OneTime, Source={StaticResource vm}}" />
+                <AppBarButton Icon="Sync" Label="Sync"
+                                Command="{Binding OnSyncRequestedCommand, Mode=OneTime, Source={StaticResource vm}}"/>
+                <AppBarToggleButton IsChecked="{Binding LocationDisplay.IsEnabled, Mode=TwoWay, Source={StaticResource vm}}"
                                     Label="My Location" Icon="Map" />
-                </StackPanel>
-            </Grid>
-        </AppBar>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
 	</Page.BottomAppBar>
 </Page>
